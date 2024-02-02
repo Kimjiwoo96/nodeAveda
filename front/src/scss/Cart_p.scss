@@ -1,0 +1,50 @@
+.subBtn {
+    border: 1px solid #C2C2C2;
+    box-sizing: border-box;
+    background-color: #fff;
+    color: #000f22;
+    line-height: 14px;
+    border-radius: 0px !important;
+}
+
+
+.cart_top {
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+.cartG {
+    box-sizing: border-box;
+    background-color: #FBFBF9;
+    min-height: 40px;
+    padding: 0 10px;
+}
+
+
+.cartCon {
+    border-top: 1px solid #DADADA;
+    border-bottom: 1px solid #DADADA;
+    box-sizing: border-box;
+
+
+    input {}
+
+
+    .cartTextCon {
+        img {
+            border: 1px solid red;
+            box-sizing: border-box;
+            width: 15vw;
+        }
+
+        div {
+            border: 1px solid blue;
+            box-sizing: border-box;
+        }
+    }
+
+    p {}
+
+
+}

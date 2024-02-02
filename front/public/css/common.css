@@ -1,0 +1,57 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+ul {
+    list-style: none;
+}
+
+a {
+    text-decoration: none !important;
+}
+
+
+button,
+.button {
+    box-sizing: border-box;
+    border: 1px solid #667E3F;
+    background-color: #667E3F;
+    border-radius: 10px !important;
+    color: #fff;
+    transition: all 0.2s ease 0s;
+    padding: 10px 20px;
+    text-align: center;
+}
+
+button:hover {
+    border: 1px solid #F6F7F3;
+    background-color: #F6F7F3;
+    color: #000f22;
+    font-weight: bold;
+}
+
+input {
+    border: 1px solid #fff;
+    box-sizing: border-box;
+    border-radius: 10px;
+    padding: 10px 7px;
+}
+
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+p:last-of-type {
+    margin-bottom: 0;
+}
+
+
+@font-face {
+    font-family: 'GmarketSansMedium';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}

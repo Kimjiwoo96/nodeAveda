@@ -1,0 +1,43 @@
+.footerWrap {
+    font-size: 0.8rem;
+    background-color: #223A21;
+    color: #fff;
+
+    p {
+        margin-bottom: 0;
+    }
+
+    .footerLeft {
+        display: flex;
+
+        a {
+            color: #fff;
+
+            i {
+                font-size: 1.5rem;
+            }
+        }
+    }
+
+    .footerRight {
+        font-weight: 200;
+        border-top: 1px solid #fff;
+    }
+}
+
+
+
+@media (max-width : 990px) {
+    // .footerWrap .footerLeft {
+    //     display: none;
+    // }
+
+    // .footerWrap .footerRight {
+    //     display: none;
+    // }
+
+    // .footerWrap .footerLeft .footerLogo {
+    //     display: block !important;
+    // }
+
+}

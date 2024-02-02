@@ -1,0 +1,108 @@
+.bestWrap {
+    border-top: 1px solid #d8d8d8;
+    border-bottom: 1px solid #d8d8d8;
+    // background-color: #F6F7F3;
+    padding: 30px 40px;
+    position: relative;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: right center;
+    position: relative;
+
+
+    @media (max-width : 990px) {
+        background-position: center;
+        background-size: cover;
+
+
+        &::before {
+            content: "";
+            display: block;
+            height: 20px;
+            position: relative;
+            z-index: 99999;
+            background: linear-gradient(rgba(255, 255, 255, 0), rgba(255, 255, 255, 1));
+            transform: translateY(-100%);
+        }
+
+        &::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            right: 0;
+            background-color: #fff;
+            opacity: 0.5;
+        }
+    }
+
+    .bestLeft {
+        z-index: 1;
+
+        .bestTitle {
+            margin-bottom: 2rem;
+        }
+
+        .bestList {
+            padding: 0;
+            font-size: 1.2em;
+            position: relative;
+
+
+
+            &::before {
+                content: "";
+                display: block;
+                height: 20px;
+                position: relative;
+                z-index: 99999;
+                background: linear-gradient(rgba(255, 255, 255, 0), rgba(255, 255, 255, 1));
+                transform: translateY(-100%);
+            }
+
+            &::after {
+                content: "sdfsdfsd";
+                display: block;
+                height: 20px;
+                position: relative;
+                z-index: 99999;
+                background: linear-gradient(rgba(255, 255, 255, 0), rgba(255, 255, 255, 1));
+                transform: translateY(-100%);
+            }
+
+
+            .bestItems {
+                cursor: pointer;
+                line-height: 45px;
+                color: #9b9b9b;
+                padding: 0 2%;
+                margin-bottom: 5px;
+                font-weight: 300;
+                border-radius: 10px;
+                white-space: nowrap;
+
+
+
+
+                span {
+                    font-size: 1.1rem;
+                    margin-right: 10px;
+                }
+            }
+
+            .swiper-slide-active {
+                font-weight: 400;
+                color: #222;
+                border: 1px solid #F6F7F3;
+                background-color: #F6F7F3;
+            }
+        }
+
+        button {
+            width: 100%;
+        }
+    }
+
+
+}

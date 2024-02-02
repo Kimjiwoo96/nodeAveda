@@ -1,0 +1,93 @@
+$main_font_color: #000f22;
+$main_color1: #223A21;
+$main_color2: #7F9873;
+$main_color3: #667E3F;
+$contents_bg_color: #F8F8F8;
+$contents_border_color: #ECECEC;
+
+
+.banner {
+    .btn {
+        bottom: 100px;
+        z-index: 1000;
+        left: 0;
+        right: 0;
+        margin: 0 auto;
+
+        @media (max-width:1280px) {
+            bottom: 100px;
+        }
+
+        @media (max-width:991px) {
+
+            top: -200px;
+            justify-content: center;
+        }
+
+        svg {
+            path {
+                fill: white !important;
+            }
+        }
+    }
+}
+
+.bannerSlide {
+
+
+    .bgcontent {
+        max-height: 400px;
+        height: 100vw;
+        background-repeat: no-repeat;
+        background-position: center;
+        padding: 30px;
+
+        @media (min-width:1200px) {
+            height: 500px;
+            background-size: auto 100% !important;
+        }
+    }
+
+    .content {
+        top: 50%;
+        transform: translateY(-50%);
+        left: 0;
+        right: 0;
+        line-height: 3;
+
+        @media (max-width:1280px) {
+            line-height: 2.5;
+        }
+
+        h2,
+        p {
+            color: $main_color1;
+        }
+
+        .myadd {
+            text-decoration: none;
+            border: 1px solid $main_color3;
+            color: $main_color3;
+        }
+
+        h2 {
+            font-size: 3rem;
+            letter-spacing: -6px;
+            word-break: keep-all;
+
+            @media (max-width:1280px) {
+                font-size: 3rem;
+                letter-spacing: 0;
+            }
+        }
+
+        p {
+            font-size: 1.5rem;
+
+            @media (max-width:1280px) {
+                font-size: 3vw;
+            }
+        }
+
+    }
+}

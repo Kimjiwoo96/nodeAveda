@@ -1,0 +1,123 @@
+:root {
+    --main-font-color: #000f22;
+    /* 메인 폰트컬러 */
+
+    --main_color1: #223A21;
+    /* 메인컬러 1 */
+
+    --main_color2: #7F9873;
+    /* 메인컬러 2 */
+
+    --main_color3: #667E3F;
+    /* 메인컬러 3 */
+
+    --contents_bg_color: #F8F8F8;
+    /*컨텐츠 배경색*/
+
+    --contents_border_color: #ECECEC;
+    /*컨텐츠 border 색깔*/
+}
+
+/* 토글 */
+:focus-visible,
+:focus {
+    outline: none !important;
+}
+
+.navbar-toggler:focus {
+    box-shadow: none !important;
+}
+
+@media (min-width:991px) {
+    #basic-navbar-nav {
+        border-top-width: 0 !important
+    }
+}
+
+.navbar-toggler .navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='currentColor' class='bi bi-x-lg' viewBox='0 0 16 16'%3E%3Cpath d='M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8z'/%3E%3C/svg%3E");
+}
+
+.navbar-toggler.collapsed .navbar-toggler-icon {
+    background-image: var(--bs-navbar-toggler-icon-bg);
+}
+
+.minibanner {
+    background-color: var(--main_color1);
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.minibanner a {
+    line-height: 45px;
+    color: var(--contents_bg_color);
+    text-decoration: none;
+}
+
+
+/* 슬라이드 */
+#slidebanner .pagination {
+    align-items: center;
+    margin-right: 1rem;
+    width: auto;
+}
+
+#slidebanner .pagination .swiper-pagination-bullet {
+    border-radius: 0;
+    width: 50px;
+    margin: 0;
+    position: relative;
+    height: 10px;
+    opacity: 1;
+    background-color: transparent;
+}
+
+#slidebanner .pagination .swiper-pagination-bullet::before {
+    content: "";
+    display: block;
+    position: absolute;
+    height: 1px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    margin: auto;
+    background-color: var(--main_color3);
+}
+
+#slidebanner .swiper-pagination-bullet-active {
+    background-color: transparent !important;
+}
+
+#slidebanner .swiper-pagination-bullet-active::before {
+    height: 3px !important;
+}
+
+#slidebanner button.button-next-slide,
+#slidebanner button.button-prev-slide {
+    height: auto;
+    width: auto;
+    margin: 0;
+    padding: 4px 8px;
+    align-items: center;
+    display: flex;
+}
+
+#slidebanner button.button-next-slide::before,
+#slidebanner button.utton-prev-slide::before {
+    content: "";
+    color: var(--contents_bg_color);
+    font-size: 18px;
+    z-index: 100000;
+}
+
+
+/* 배너슬라이드 영역 */
+.bannerStrong0 {
+    letter-spacing: 0;
+}
+
+.bannerStrong1 {
+    font-size: 0.5em;
+    letter-spacing: 0;
+}

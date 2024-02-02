@@ -1,0 +1,39 @@
+.priceDescription {
+    text-decoration: none;
+    color: #000f22;
+
+    strong {
+        line-height: 25px;
+        min-height: 50px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    p {
+        font-size: 1rem;
+        min-height: 70px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    div {
+        .con1 {
+            i {
+                color: yellow;
+            }
+        }
+
+        .con2 {
+            color: #CDCDCD;
+            text-decoration: line-through
+        }
+
+        div {
+            .con3 {
+                color: #667E3F;
+                font-weight: bold;
+                margin-right: 7px;
+            }
+        }
+    }
+}
