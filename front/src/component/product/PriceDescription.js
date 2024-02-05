@@ -25,7 +25,7 @@ function PriceDescription({
                     <span className='con2'>{oriprice}원</span>
                     <div>
                         <span className='con3'>{contentNum}%</span>
-                        <span className='con4'>{price}원</span>
+                        <span className='con4'>{price.toLocaleString()}원</span>
                     </div>
 
                 </div>

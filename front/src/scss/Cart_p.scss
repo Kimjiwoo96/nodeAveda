@@ -37,12 +37,33 @@
         }
 
         div {
-            border: 1px solid blue;
+            // border: 1px solid blue;
+            // box-sizing: border-box;
+        }
+
+
+        .pricebtn {
+            border: 1px solid #F7F7F7;
             box-sizing: border-box;
+            text-align: center;
+
+            p {
+                margin: 0;
+            }
+
+            .PMbtns {
+                background-color: #F7F7F7;
+                padding: 0px 10px;
+                cursor: pointer;
+            }
+
+            .Quantity {
+                // padding: 0px 40px;
+                text-align: center;
+                height: 24px;
+                max-width: 60px;
+            }
         }
     }
-
-    p {}
-
 
 }

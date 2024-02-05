@@ -7,7 +7,9 @@ import { Link } from 'react-router-dom';
 
 
 
-function Hd({ sharedState }) {
+function Hd({
+    sharedState
+}) {
     const [liOpen, setLiOpen] = useState(null)
     const [scrollPosition, setScrollPosition] = useState(0);
     const [windowWidth, setWindowWidth] = useState(window.innerWidth);

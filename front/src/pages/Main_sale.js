@@ -12,6 +12,9 @@ function Main_sale({
     updateSharedState //장바구니 pk 상위컴포넌트 전달 메소드 
 }) {
 
+
+    console.log("나는 sharedState>>>>", sharedState)
+
     const pkarray = useRef([]);
 
     const pkcontrol = (cls, pk) => {
