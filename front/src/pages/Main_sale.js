@@ -1,53 +1,44 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { Link } from 'react-router-dom';
 import PriceDescription from '../component/product/PriceDescription';
 import { Mycontainer } from "../js/commonUi";
-import { productApi } from "../api/product"
-import axios from 'axios';
+
 
 function Main_sale({
-    slice,
+    content,
     texts,
-    myclassStyle
+    myclassStyle,
+    sharedState,
+    updateSharedState //장바구니 pk 상위컴포넌트 전달 메소드 
 }) {
 
-    const [content, setCont] = useState([]);
-    const [cartImgHover, setCartImgHover] = useState([]);
-    const [conSlice, setConSlice] = useState(slice);
+    const pkarray = useRef([]);
 
+    const pkcontrol = (cls, pk) => {
+        const index = pkarray.current.indexOf(pk);
 
+        if (cls == 'bi bi-cart-fill') {
+            if (index === -1) {
+                // Add to array if not already present
+                pkarray.current.push(pk);
 
-
+            }
+        } else {
+            // Remove from array if present
+            if (index !== -1) {
+                pkarray.current.splice(index, 1);
+            }
+        }
+        updateSharedState([...pkarray.current])
+    }
 
     useEffect(() => {
-        const fetchDataAndSetState = async () => {
-            try {
-                const response = await productApi("product");
-                setCont([...response.data]);
-                setCartImgHover(new Array(response.data.length).fill('bi bi-cart'));
-            } catch (error) {
-                console.log(error);
-            }
-        };
-        fetchDataAndSetState();
-    }, []);
+        // 장바구니 활성화하기
+        console.log(content && content)
+    }, [])
 
 
 
-
-
-
-    const handleCartHover = (idx) => {
-        const updatedHoverState = [...cartImgHover];
-        updatedHoverState[idx] = 'bi bi-cart-fill';
-        setCartImgHover(updatedHoverState);
-    };
-
-    const handleCartLeave = (idx) => {
-        const updatedHoverState = [...cartImgHover];
-        updatedHoverState[idx] = 'bi bi-cart';
-        setCartImgHover(updatedHoverState);
-    };
 
     return (
         <Mycontainer>
@@ -62,7 +53,7 @@ function Main_sale({
                 </div>
 
                 <div className='row mx-0'>
-                    {content.map((el, idx) => (
+                    {content && content.map((el, idx) => (
                         <div
                             key={el.idx}
                             className='col-lg-3 col-md-6'
@@ -71,16 +62,18 @@ function Main_sale({
                                 <div className='position-relative'>
                                     <img src={el.img} alt='' className='img-fluid rounded-2 w-100' />
                                     <span
-                                        onMouseEnter={() => handleCartHover(idx)}
-                                        onMouseLeave={() => handleCartLeave(idx)}
                                         className='cart position-absolute'
                                         style={{ top: '10px', left: '10px' }}
-                                        onClick={() => {
-                                            alert('장바구니에 추가되었습니다.');
-                                        }}
                                     >
                                         <i
-                                            className={cartImgHover[idx]}
+                                            className="bi bi-cart"
+                                            onClick={(elem) => {
+                                                elem.target.className = elem.target.className == "bi bi-cart" ? "bi bi-cart-fill" : "bi bi-cart";
+
+                                                pkcontrol(elem.target.className, el.idx)
+                                                console.log('장바구니 pk', pkarray.current)
+                                                { elem.target.className == "bi bi-cart" ? alert("상품을 삭제했습니다") : alert("장바구니에 추가했습니다") }
+                                            }}
                                             style={{ color: '#ACACAC', fontSize: '1.3rem' }}
                                         ></i>
                                     </span>

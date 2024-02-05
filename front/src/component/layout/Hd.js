@@ -7,32 +7,33 @@ import { Link } from 'react-router-dom';
 
 
 
-function Hd() {
+function Hd({ sharedState }) {
     const [liOpen, setLiOpen] = useState(null)
     const [scrollPosition, setScrollPosition] = useState(0);
     const [windowWidth, setWindowWidth] = useState(window.innerWidth);
 
+
+
+
     const backgroundColor = scrollPosition > 100 ? '#FFF' : 'rgb(255, 255, 255, 0.6)';
+
     useEffect(() => {
         const handleScroll = () => {
             setScrollPosition(window.scrollY);
         };
         window.addEventListener('scroll', handleScroll);
-        return () => {
-            window.removeEventListener('scroll', handleScroll);
-        };
-    }, []);
-
-
-    useEffect(() => {
         const handleResize = () => {
             setWindowWidth(window.innerWidth);
         };
         window.addEventListener('resize', handleResize);
         return () => {
+            window.removeEventListener('scroll', handleScroll);
             window.removeEventListener('resize', handleResize);
         };
     }, []);
+
+
+
 
 
 
@@ -95,7 +96,9 @@ function Hd() {
                                 </Link>
 
                                 <Link to="/cart" className={`${styleHd.iconsLink}`}>
-                                    <p><i class="bi bi-cart"></i>Cart</p>
+                                    <p className='position-relative'><i class="bi bi-cart"></i>Cart
+                                        <span className='position-absolute bg-dark text-white end-0 top-0'>{sharedState.length > 0 ? sharedState.length : null}</span>
+                                    </p>
                                 </Link>
 
                                 <Link to="/" className={`${styleHd.iconsLink}`}>

@@ -23,17 +23,15 @@
 
 
 .cartCon {
-    border-top: 1px solid #DADADA;
-    border-bottom: 1px solid #DADADA;
+    border-top: 0.5px solid #DADADA;
+    border-bottom: 0.5px solid #DADADA;
     box-sizing: border-box;
 
 
     input {}
 
-
     .cartTextCon {
         img {
-            border: 1px solid red;
             box-sizing: border-box;
             width: 15vw;
         }
