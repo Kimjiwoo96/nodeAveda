@@ -43,6 +43,7 @@ function Cart_p({
             return total + item.price * quantity;
         }, 0);
 
+
     return (
         <div style={{ marginTop: myclassStyle.conmargin }} className='container'>
             <h4 className={`${myclassStyle.h4class}`}>{texts.text}</h4>
@@ -64,7 +65,7 @@ function Cart_p({
                     <p className='col-1 text-center'>합계</p>
                 </div>
 
-                {content.length > 0 ? (
+                {content.filter((v) => sharedState.includes(v.idx)).length > 0 ? (
                     content.filter((v) => sharedState.includes(v.idx)).map((el, i) => (
                         <div key={i} className='cartCon d-flex justify-content-between align-items-center'>
                             <div className='text-center col-1'>

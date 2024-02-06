@@ -7,7 +7,13 @@ naviapp.use(express.urlencoded({ extended: true }))
 
 const conntectRouter = require("../mysql/connect")
 
-
+naviapp.get("/:tablenm", (req, res, next) => {
+  const tablenm = req.params.tablenm;
+  req.body.crud = "select";
+  req.body.tablenm = tablenm;
+  naviapp.use("/", conntectRouter)
+  next('route')
+})
 naviapp.post('/:tablenm', (req, res, next) => {
   // const tablenm = req.query.tablenm;
   const tablenm = req.params.tablenm;
@@ -76,23 +82,7 @@ naviapp.post('/:tablenm', (req, res, next) => {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  req.body.tablenm = tablenm;
+  // req.body.tablenm = tablenm;
 
 
   naviapp.use("/", conntectRouter)
