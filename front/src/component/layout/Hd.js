@@ -103,9 +103,16 @@ function Hd({
                                     </p>
                                 </Link>
 
-                                <Link to="/" className={`${styleHd.iconsLink}`}>
+                                <Link to="/login" className={`${styleHd.iconsLink}`}>
                                     <p><i class="bi bi-person-circle"></i>Mypage</p>
                                 </Link>
+
+
+                                <Link to="/registration" className={`${styleHd.iconsLink}`}>
+                                    <p>상품등록</p>
+                                </Link>
+
+
                             </Nav>
                         </Navbar.Collapse>
                     </div>

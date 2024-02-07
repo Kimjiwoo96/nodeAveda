@@ -35,18 +35,13 @@ productrouter.use("/", (req, res) => {
                 res.send(success)
             })
         } else if (crud == 'insert') {
-            const {
-                u_name,
-                u_phone,
-                u_email,
-                marketing
-            } = req.body
+            const { u_name, u_phone, u_email, marketing } = req.body
 
-            connection.query(`INSERT INTO ${tablenm} (u_name,u_phone ,u_email,marketing) VALUES (${u_name},${u_phone},${u_email},${marketing})`, (errors, success) => {
+            connection.query(`INSERT INTO ${tablenm} (u_name,u_phone,u_email,marketing) VALUES ('${u_name}','${u_phone}','${u_email}','${marketing}')`, (errors, success) => {
                 if (errors) {
                     throw console.log(errors)
                 }
-                res.send("success")
+                res.send(success)
             })
         }
         // else if (crud == "update") {
@@ -54,7 +49,7 @@ productrouter.use("/", (req, res) => {
 
         //         if (err) throw console.log('쿼리문 다시 작성해')
         //         res.send(result)
-        //     })
+        //     });[[[[[[[[[[[[[[[[[[[[[[[[[;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;]]]]]]]]]]]]]]]]]]]]]]]]]
         //     connection.release();
 
         // } else {

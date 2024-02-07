@@ -15,6 +15,8 @@ import Form from "./component/main/Form";
 import Footer from "./component/layout/Footer";
 import Shop_p from "./pages/Shop_p";
 import Cart_p from "./pages/Cart_p";
+import Login_p from "./pages/Login_p";
+import Registration_p from "./pages/Registration_p";
 
 // css
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -48,11 +50,34 @@ function App() {
 
   return (
     <div className="App">
-      <Hd sharedState={sharedState}></Hd>
+
+      <Routes>
+        <Route path="/login" element={
+          <>
+            <Login_p></Login_p>
+          </>
+        }>
+        </Route>
+      </Routes>
+
+
+
+      <Routes>
+        <Route path="/registration" element={
+          <>
+            <Hd sharedState={sharedState}></Hd>
+            <Registration_p></Registration_p>
+            <Footer></Footer>
+          </>
+        }>
+        </Route>
+      </Routes>
+
 
       <Routes>
         <Route path="/sale_p" element={
           <>
+            <Hd sharedState={sharedState}></Hd>
             <Main_sale
               content={content && content.slice(0, 16)}
               texts={{
@@ -65,12 +90,14 @@ function App() {
                 conmargin: "200px"
               }}
             />
+            <Footer></Footer>
           </>
         }>
         </Route>
 
         <Route path="/best_p" element={
           <>
+            <Hd sharedState={sharedState}></Hd>
             <Main_sale
               content={content && content.slice(0, 16)}
               texts={{
@@ -83,21 +110,25 @@ function App() {
                 conmargin: "200px"
               }}
             />
+            <Footer></Footer>
           </>
         }></Route>
 
         <Route path="/shop" element={
           <>
+            <Hd sharedState={sharedState}></Hd>
             <Shop_p
               conmargin="200px"
               h4class="text-center"
             />
+            <Footer></Footer>
           </>
         }></Route>
 
 
         <Route path="/cart" element={
           <>
+            <Hd sharedState={sharedState}></Hd>
             <Cart_p
               sharedState={sharedState}  //장바구니 라우터 pk전달 장바구니에서 삭제했을때 메인의 장바구니 표시에 영향을 주어야 해서 반드시 전달해주기
               setSharedState={setSharedState}
@@ -110,6 +141,7 @@ function App() {
                 conmargin: "200px"
               }}
             />
+            <Footer></Footer>
           </>
         }>
         </Route>
@@ -117,6 +149,7 @@ function App() {
 
         <Route path="/" element={
           <>
+            <Hd sharedState={sharedState}></Hd>
             <div id='slidebanner'>
               <Mainvideo className="position-relative"></Mainvideo>
             </div>
@@ -141,11 +174,12 @@ function App() {
             <Main_best></Main_best>
             <Main_service></Main_service>
             <Form></Form>
+            <Footer></Footer>
           </>
         }></Route>
       </Routes>
 
-      <Footer></Footer>
+
 
     </div >
   );

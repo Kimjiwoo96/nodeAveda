@@ -1,0 +1,70 @@
+form.RegistrationForm {
+    box-sizing: border-box;
+    width: 40vw;
+    padding: 20px;
+    margin-top: 161px;
+
+
+    h4 {
+        width: 100%;
+        text-align: center;
+        line-height: 40px;
+        margin-bottom: 20px;
+        font-size: 18px;
+    }
+
+    div {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+
+    input {
+        border-radius: 5px;
+        padding: 4px 7px;
+        width: 100%;
+    }
+
+    label {
+        width: 56px;
+        margin-right: 10px;
+    }
+
+    .labelWidth {
+        width: auto;
+    }
+
+
+    .kind {
+
+        select {
+            width: 30%;
+            padding: 4px 7px;
+            border: 1px solid #dee2e6;
+            border-radius: 5px;
+        }
+    }
+
+    .priceSection {
+        .oriprice {
+            width: 48%;
+        }
+
+        .price {
+            width: 48%;
+        }
+    }
+
+    .btns {
+        margin-top: 20px;
+        line-height: 30px;
+
+        input[type="button"] {
+            width: 34%;
+        }
+
+        input[type="submit"] {
+            width: 64%;
+            background-color: #DEE4D9;
+        }
+    }
+}

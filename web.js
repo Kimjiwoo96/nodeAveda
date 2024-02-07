@@ -1,12 +1,8 @@
 const express = require('express')
 const path = require('path')
 const port = 8001
-// const cors = require('cors');
-const navidata = require("./server/routers/navi");
 
-// app.use(cors({
-//     origin: 'http://localhost:3000'
-// }));
+const navidata = require("./server/routers/navi");
 
 const app = express();
 
