@@ -13,6 +13,22 @@ naviapp.get("/:tablenm", (req, res, next) => {
   req.body.crud = "select";
   req.body.tablenm = tablenm;
 
+
+  conn.getConnection((error, connection) => {
+    if (error) throw console.log("디비접속오류" + error)
+
+
+    connection.query(`SELECT * FROM ${tablenm}`, (errors, success) => {
+      if (errors) {
+        throw console.log('connect.js에서 insert 오류' + errors)
+      }
+      res.send(success)
+      connection.release();
+    })
+  }
+  )
+
+
 })
 naviapp.post('/:tablenm', (req, res, next) => {
   //insert 전용

@@ -37,7 +37,7 @@ function Main_sale({
 
     useEffect(() => {
         // 장바구니 활성화하기
-        console.log(content && content)
+        console.log("무슨일이야????>>>", content && content)
     }, [])
 
 

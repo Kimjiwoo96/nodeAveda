@@ -16,7 +16,7 @@ export const productApi = async (myName, data = null) => {
                 throw new Error('Network response was not ok');
             }
 
-            const responseData = await response.json(); // Assuming the response is JSON, adjust as necessary
+            const responseData = await response.json();
             return responseData;
         } else {
             return axios.get(`/data/${myName}`);

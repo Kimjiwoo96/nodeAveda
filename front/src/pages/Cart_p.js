@@ -36,12 +36,18 @@ function Cart_p({
         selectedItemsRef.current = sharedState;
     }, [sharedState]);
 
-    const totalSelectedItemsPrice = content
-        .filter((v) => sharedState.includes(v.idx))
-        .reduce((total, item) => {
-            const quantity = quantities[item.idx] || 1;
-            return total + item.price * quantity;
-        }, 0);
+
+
+
+    const totalSelectedItemsPrice =
+        content.filter((v) => sharedState.includes(v.idx))
+            .reduce((total, item) => {
+                const quantity = quantities[item.idx] || 1;
+                return total + item.price * quantity;
+            }, 0);
+
+
+
 
 
     return (
