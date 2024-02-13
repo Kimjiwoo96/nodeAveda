@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { Link } from 'react-router-dom';
 import PriceDescription from '../component/product/PriceDescription';
 import { Mycontainer } from "../js/commonUi";
+import e from 'cors';
 
 
 function Main_sale({
@@ -32,13 +33,16 @@ function Main_sale({
                 pkarray.current.splice(index, 1);
             }
         }
-        updateSharedState([...pkarray.current])
+        const resultArr = Array.from(new Set([...pkarray.current, ...sharedState]))
+        updateSharedState((prev) =>
+            [...resultArr]
+        )
     }
 
-    useEffect(() => {
-        // 장바구니 활성화하기
-        console.log("무슨일이야????>>>", content && content)
-    }, [])
+    // useEffect(() => {
+    //     // 장바구니 활성화하기
+    //     console.log("무슨일이야????>>>", content && content)
+    // }, [])
 
 
 
@@ -68,7 +72,24 @@ function Main_sale({
                                         className='cart position-absolute'
                                         style={{ top: '10px', left: '10px' }}
                                     >
+
                                         <i
+                                            className={sharedState.includes(el.idx) ? "bi bi-cart-fill" : "bi bi-cart"}
+                                            style={{ color: '#ACACAC', fontSize: '1.3rem' }}
+                                            onClick={(elem) => {
+                                                elem.target.className = elem.target.className == "bi bi-cart" ? "bi bi-cart-fill" : "bi bi-cart";
+
+                                                pkcontrol(elem.target.className, el.idx)
+
+                                                console.log('장바구니 pk', pkarray.current)
+
+                                                alert(elem.target.className == "bi bi-cart" ? "상품을 삭제했습니다" : "장바구니에 추가했습니다")
+                                            }}
+                                        ></i>
+
+
+
+                                        {/* <i
                                             className="bi bi-cart"
                                             onClick={(elem) => {
                                                 elem.target.className = elem.target.className == "bi bi-cart" ? "bi bi-cart-fill" : "bi bi-cart";
@@ -76,9 +97,15 @@ function Main_sale({
                                                 pkcontrol(elem.target.className, el.idx)
                                                 console.log('장바구니 pk', pkarray.current)
                                                 { elem.target.className == "bi bi-cart" ? alert("상품을 삭제했습니다") : alert("장바구니에 추가했습니다") }
+                                                console.log(">>>>>>>>>>뭐냐고", el.idx)
                                             }}
                                             style={{ color: '#ACACAC', fontSize: '1.3rem' }}
-                                        ></i>
+                                        ></i> */}
+
+
+
+
+
                                     </span>
                                 </div>
                                 <PriceDescription
@@ -92,8 +119,8 @@ function Main_sale({
                         </div>
                     ))}
                 </div>
-            </div>
-        </Mycontainer>
+            </div >
+        </Mycontainer >
     );
 }
 

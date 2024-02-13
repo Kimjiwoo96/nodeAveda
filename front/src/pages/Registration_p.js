@@ -1,6 +1,10 @@
 import React from 'react'
 import { useState, useCallback, useEffect } from "react";
 import { useForm } from "react-hook-form"
+// import axios from 'axios';
+
+// api
+import { productApi } from "../api/product";
 
 // css 연결
 import "../scss/Registration_p.scss"
@@ -15,10 +19,22 @@ function Registration_p() {
         formState: { errors },
     } = useForm()
 
-    const onSubmit = (data) => console.log(data)
 
-    console.log(watch("example")) // watch input value by passing the name of it
 
+    // const onSubmit = (data) => console.log(data)
+    console.log(watch())
+
+
+
+    const onSubmit = async (data) => {
+        try {
+            console.log("이게나와야해>>>>>>>>", data)
+            const resultJson = await productApi('product', data)
+            console.log("resultJson>>>", resultJson)
+        } catch (err) {
+            console.log(err)
+        }
+    }
 
 
     return (
@@ -76,8 +92,7 @@ function Registration_p() {
 
 
                     <div className='btns d-flex justify-content-between align-items-center'>
-                        <input type="button" value={"등록취소"} />
-                        <input type="submit" value={"상품 등록하기"} />
+                        <input type="submit" />
                     </div>
                 </form>
             </section>

@@ -93,9 +93,9 @@ function Hd({
                                 }
                             </Nav>
                             <Nav className={`${styleHd.icons} px-3 px-lg-0 d-flex justify-content-end flex-row`}>
-                                <Link to="/shop" className={`${styleHd.iconsLink}`}>
+                                {/* <Link to="/shop" className={`${styleHd.iconsLink}`}>
                                     <p><i class="bi bi-geo-alt"></i>Shop</p>
-                                </Link>
+                                </Link> */}
 
                                 <Link to="/cart" className={`${styleHd.iconsLink}`}>
                                     <p className='position-relative'><i class="bi bi-cart"></i>Cart

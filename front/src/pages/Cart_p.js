@@ -28,6 +28,8 @@ function Cart_p({
     //     }
     // };
 
+
+
     const handleDeleteSelectedItems = () => {
         // Logic to delete selected items
     };
@@ -45,6 +47,8 @@ function Cart_p({
                 const quantity = quantities[item.idx] || 1;
                 return total + item.price * quantity;
             }, 0);
+
+
 
 
 

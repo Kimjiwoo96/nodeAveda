@@ -26,6 +26,9 @@ function Form() {
     };
 
 
+
+
+
     const buttonClick = async (e) => { //전송버튼 비동기 이벤트
         console.log("전송요청함")
 
@@ -41,6 +44,7 @@ function Form() {
             console.error('서버 요청 오류:', error);
         }
     }
+
 
 
     return (

@@ -58,12 +58,12 @@ form.RegistrationForm {
         margin-top: 20px;
         line-height: 30px;
 
-        input[type="button"] {
-            width: 34%;
-        }
+        // input[type="button"] {
+        //     width: 34%;
+        // }
 
         input[type="submit"] {
-            width: 64%;
+            width: 100%;
             background-color: #DEE4D9;
         }
     }
