@@ -56,13 +56,13 @@ function Mainbanner({ className }) {
                                                     <strong key={i} className={`d-block bannerStrong${i}`}>{e}</strong>
                                                 )
                                             })}
-                                                <span className='d-md-none d-block'>모바일</span>
+                                                {/* <span className='d-md-none d-block'>모바일</span> */}
                                             </h2>
 
                                             <p>{el.txt}</p>
-                                            <a href="#none" className={`${MainStyle.myadd} d-none d-lg-none d-md-inline-block py-1 px-4`}>
+                                            {/* <a href="#none" className={`${MainStyle.myadd} d-none d-lg-none d-md-inline-block py-1 px-4`}>
                                                 더보기 +
-                                            </a>
+                                            </a> */}
                                         </div>
                                     </div>
                                 </SwiperSlide>

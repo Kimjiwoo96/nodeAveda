@@ -136,7 +136,7 @@ function Cart_p({
                         </div>
                     ))
                 ) : (
-                    <p className='text-center' style={{ fontWeight: "700", lineHeight: "200px" }}>장바구니가 비었습니다.</p>
+                    <p className='text-center' style={{ fontWeight: "700", lineHeight: "275px" }}>장바구니가 비었습니다.</p>
                 )}
 
                 <div className='cartG d-flex justify-content-end align-items-center'>

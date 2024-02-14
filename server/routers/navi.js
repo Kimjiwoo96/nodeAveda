@@ -37,19 +37,65 @@ naviapp.post('/:tablenm', (req, res, next) => {
   const columns = Object.keys(req.body.body).join(', ');
   const values = Object.values(req.body.body).map(value => `'${value}'`).join(', ');
 
+
+  // res.send(`${tablenm} ${columns} ${values}`)
+
+
+
+
+
+
+
+
   conn.getConnection((error, connection) => {
     if (error) throw console.log("디비접속오류" + error)
 
-
-    connection.query(`INSERT INTO ${tablenm}  (${columns})
-           VALUES (${values})`, (errors, success) => {
-      if (errors) {
-        throw console.log('connect.js에서 insert 오류' + errors)
-      }
-      res.send("success")
-      connection.release();
-    })
+    if (tablenm == "member") {
+      connection.query(`SLELCT INTO ${tablenm}  (${columns})
+      VALUES (${values})`, (errors, success) => {
+        if (errors) {
+          throw console.log('connect.js에서 insert 오류' + errors)
+        }
+        res.send(success)
+        connection.release();
+      })
+    } else {
+      connection.query(`INSERT INTO ${tablenm}  (${columns})
+  VALUES (${values})`, (errors, success) => {
+        if (errors) {
+          throw console.log('connect.js에서 insert 오류' + errors)
+        }
+        res.send(success)
+        connection.release();
+      })
+    }
   }
+
+
+
+
+
+
+
+
+    // conn.getConnection((error, connection) => {
+    //   if (error) throw console.log("디비접속오류" + error)
+
+
+    //   connection.query(`INSERT INTO ${tablenm}  (${columns})
+    //          VALUES (${values})`, (errors, success) => {
+    //     if (errors) {
+    //       throw console.log('connect.js에서 insert 오류' + errors)
+    //     }
+    //     res.send(success)
+    //     connection.release();
+    //   })
+    // }
+
+
+
+
+
   )
 
 })

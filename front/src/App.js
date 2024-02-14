@@ -1,5 +1,6 @@
 // import 파일 
-import { useState, useCallback, useEffect } from "react";
+import * as React from 'react'
+import { useState, useEffect } from "react";
 import { Routes, Route } from "react-router-dom";
 
 // api
@@ -7,16 +8,16 @@ import { productApi } from "./api/product";
 // component파일 
 import Hd from "./component/layout/Hd";
 import Mainvideo from "./component/banner/Videobanner"
-import Main_sale from "./pages/Main_sale";
+import MainSale from "./pages/Main_sale";
 import Mainbanner from "./component/banner/Imgbanner"
-import Main_best from "./pages/Main_best";
-import Main_service from "./pages/Main_service";
+import MainBest from "./pages/Main_best";
+import MainService from "./pages/Main_service";
 import Form from "./component/main/Form";
 import Footer from "./component/layout/Footer";
-import Shop_p from "./pages/Shop_p";
-import Cart_p from "./pages/Cart_p";
-import Login_p from "./pages/Login_p";
-import Registration_p from "./pages/Registration_p";
+import ShopP from "./pages/Shop_p";
+import CartP from "./pages/Cart_p";
+import LoginP from "./pages/Login_p";
+import RegistrationP from "./pages/Registration_p";
 
 // css
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -54,7 +55,7 @@ function App() {
       <Routes>
         <Route path="/login" element={
           <>
-            <Login_p></Login_p>
+            <LoginP></LoginP>
           </>
         }>
         </Route>
@@ -66,7 +67,7 @@ function App() {
         <Route path="/registration" element={
           <>
             <Hd sharedState={sharedState}></Hd>
-            <Registration_p></Registration_p>
+            <RegistrationP></RegistrationP>
             <Footer></Footer>
           </>
         }>
@@ -78,7 +79,7 @@ function App() {
         <Route path="/sale_p" element={
           <>
             <Hd sharedState={sharedState}></Hd>
-            <Main_sale
+            <MainSale
               content={content && content.slice(0, 16)}
               texts={{
                 text: "할인상품",
@@ -89,6 +90,7 @@ function App() {
                 h4class: "text-center",
                 conmargin: "200px"
               }}
+              sharedState={sharedState}
             />
             <Footer></Footer>
           </>
@@ -98,7 +100,7 @@ function App() {
         <Route path="/best_p" element={
           <>
             <Hd sharedState={sharedState}></Hd>
-            <Main_sale
+            <MainSale
               content={content && content.slice(0, 16)}
               texts={{
                 text: "인기상품",
@@ -117,7 +119,7 @@ function App() {
         <Route path="/shop" element={
           <>
             <Hd sharedState={sharedState}></Hd>
-            <Shop_p
+            <ShopP
               conmargin="200px"
               h4class="text-center"
             />
@@ -129,7 +131,7 @@ function App() {
         <Route path="/cart" element={
           <>
             <Hd sharedState={sharedState}></Hd>
-            <Cart_p
+            <CartP
               sharedState={sharedState}  //장바구니 라우터 pk전달 장바구니에서 삭제했을때 메인의 장바구니 표시에 영향을 주어야 해서 반드시 전달해주기
               setSharedState={setSharedState}
               content={content && content}
@@ -153,7 +155,7 @@ function App() {
             <div id='slidebanner'>
               <Mainvideo className="position-relative"></Mainvideo>
             </div>
-            <Main_sale
+            <MainSale
               sharedState={sharedState}
               updateSharedState={updateSharedState} // 하위컴포넌트에 상위컴포넌트 상태변수관리 메소드전달
               content={content && content.slice(0, 8)} //비동기 처리 리턴은 항상 조심하기 // 비동기처리 전달값이 생성하고 나서 slice해야 오류없음
@@ -167,12 +169,12 @@ function App() {
                 h4class: null,
                 conmargin: "0px"
               }}
-            ></Main_sale>
+            ></MainSale>
 
 
             <Mainbanner className="position-relative"></Mainbanner>
-            <Main_best></Main_best>
-            <Main_service></Main_service>
+            <MainBest></MainBest>
+            <MainService></MainService>
             <Form></Form>
             <Footer></Footer>
           </>

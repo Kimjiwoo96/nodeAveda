@@ -1,46 +1,55 @@
 import { useState, useCallback, useEffect } from "react";
-import { useDispatch } from 'react-redux';
+// api
+import { productApi } from "../api/product";
+
 
 
 
 function Login_p() {
 
+    const [formData, setFormData] = useState({
+        name: '',
+        Password: '',
+    });
 
-    const [u_id, setU_id] = useState("");
-    const [Password, setPassword] = useState("");
-    const dispatch = useDispatch();
 
 
 
-    const onUidHandler = (event) => {
-        setU_id(event.currentTarget.value);
+
+
+    const onSubmitHandler = async (e) => { //전송버튼 비동기 이벤트
+        console.log("전송요청함")
+
+        try {
+            e.preventDefault();
+            // 리액트에서 일단 먼저확인 보내기 전
+            console.log("리엑트 formData>>>>>", formData);
+            //
+            const response = await productApi('member', formData);
+            // 노드에서 보내줌
+            console.log('서버 응답:', response);
+        } catch (error) {
+            console.error('서버 요청 오류:', error);
+        }
     }
-    const onPasswordHandler = (event) => {
-        setPassword(event.currentTarget.value);
-    }
 
 
+    const handleChange = (e) => {
+        const { name, value } = e.target;
+        setFormData(prevState => ({
+            ...prevState,
+            [name]: value
+        }));
 
-    const onSubmitHandler = (event) => {
+        console.log("나는data>>>", formData)
+    };
 
-        event.preventDefault();
-
-        console.log('u_id>>>>>>>', u_id);
-        console.log('Password>>>>>>>', Password);
-
-        // let body = {
-        //     u_id: u_id,
-        //     password: Password,
-        // }
-
-        // dispatch(loginUser(body));
-    }
 
 
     return (
         <>
-            <form action=""
-                lassName='border p-3 rounded-1 position-fixed'
+            <form
+                className='border p-3 rounded-1 position-fixed'
                 style={{ width: "30%", backgroundColor: "#FBFBF9", top: "50%", left: "50%", transform: "translate(-50%, -50%)" }}
                 onSubmit={onSubmitHandler}
             >
@@ -49,15 +58,15 @@ function Login_p() {
                     type="text"
                     placeholder='아이디를 입력해주세요'
                     className='border w-100 mb-2'
-                    onChange={onUidHandler}
-                    value={u_id}
+                    name={formData.name}
+                    onChange={handleChange}
                 />
                 <input
                     type="password"
                     placeholder='비밀번호를 입력해주세요'
                     className='border w-100'
-                    onChange={onPasswordHandler}
-                    value={Password}
+                    name={formData.Password}
+                    onChange={handleChange}
                 />
                 <button
                     type="submit"

@@ -19,13 +19,6 @@ function Registration_p() {
         formState: { errors },
     } = useForm()
 
-
-
-    // const onSubmit = (data) => console.log(data)
-    console.log(watch())
-
-
-
     const onSubmit = async (data) => {
         try {
             console.log("이게나와야해>>>>>>>>", data)
@@ -35,6 +28,7 @@ function Registration_p() {
             console.log(err)
         }
     }
+
 
 
     return (
@@ -86,8 +80,8 @@ function Registration_p() {
 
                     <div>
                         <label for="img" className='labelWidth'>상품이미지</label>
-                        <input type="file"{...register("img", { required: true })} className='border' id="img" />
-                        {errors.exampleRequired && <span>소비자가를 입력해주세요</span>}
+                        <input type="text"{...register("img", { required: true })} className='border' id="img" placeholder='이미지 외부경로를 입력해주세요 ' />
+                        {errors.exampleRequired && <span>이미지 경로를 입력해주세요</span>}
                     </div>
 
 
