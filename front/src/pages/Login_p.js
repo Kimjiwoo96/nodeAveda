@@ -1,51 +1,27 @@
-import { useState, useCallback, useEffect } from "react";
-import { Link } from "react-router-dom"
+import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 // api
 import { productApi } from "../api/api";
 
-
-
-
 function Login_p() {
-
     const [formData, setFormData] = useState({});
     const [mbstatus, setMbstatus] = useState("nomember");
 
-
-
-
-
-
-
-
-    const onSubmitHandler = async (e) => { //전송버튼 비동기 이벤트
-        console.log("전송요청함")
-
+    const onSubmitHandler = async (e) => {
+        e.preventDefault();
         try {
-            e.preventDefault();
-            // 리액트에서 일단 먼저확인 보내기 전
             console.log("리엑트 formData>>>>>", formData);
-            //
-            productApi('member', formData).then((response) => {
-                console.log("나는 누구인가>>>>>", mbstatus)
-                console.log("결과는???????", response)
-            });
-            // 노드에서 보내줌
-
-
-
-
-
-            // setMbstatus(response.data) //s 면 최고관리자, m 이면 일반회원, nomember
+            const response = await productApi('member', formData);
             setFormData({
                 name: "",
                 password: ""
-            })
+            });
+            console.log("로그인 컴포넌트", response); // Check response structure
+            setMbstatus(response.data.member); // Assuming response.data.member contains 's', 'm', or 'nomember'
         } catch (error) {
             console.error('서버 요청 오류:', error);
         }
-    }
-
+    };
 
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -53,26 +29,13 @@ function Login_p() {
             ...prevState,
             [name]: value
         }));
-
-        console.log("나는data>>>", formData)
     };
 
-
-
-
-
     useEffect(() => {
-        console.log(">>??>?>**", mbstatus)
-    }, [mbstatus])
-
-    useEffect(() => {
-        console.log(">>??>?>**", mbstatus)
-    }, [mbstatus])
-
-
+        console.log(mbstatus);
+    }, [mbstatus]);
 
     return (
-
         <>
             {mbstatus === "nomember" &&
                 <form
@@ -100,18 +63,13 @@ function Login_p() {
                     <button
                         type="submit"
                         className='w-100 mt-4'
-
                     >로그인</button>
-                </form >
+                </form>
             }
-            {
-                mbstatus === "s" && <p><Link to="/registration">최고관리자님 환영합니다. 상품등록 바로가기</Link></p>
-            }
-            {
-                mbstatus === "m" && <p><Link to="/">일반회원</Link></p>
-            }
+            {mbstatus === "최고관리자" && <p><Link to="/registration">최고관리자님 환영합니다. 상품등록 바로가기</Link></p>}
+            {mbstatus === "회원" && <p><Link to="/">일반회원</Link></p>}
         </>
-    )
+    );
 }
 
-export default Login_p
+export default Login_p;

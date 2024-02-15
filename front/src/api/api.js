@@ -5,33 +5,17 @@ import axios from 'axios';
 export const productApi = async (myName, data = null) => {
     try {
         if (data) {
-
-            axios.post(`/data/${myName}`, {
+            const response = await axios.post(`/data/${myName}`, {
                 headers: {
                     'Content-Type': 'multipart/form-data',
                 },
                 body: data
-            }).then((response) => {
-                console.log("api res>>>>>>", typeof response, response);
-
-
-                return response;
-
-                // response.json().then((responseData) => {
-                //     console.log("이건또먼데>>>>>>", responseData)
-
-                //     return responseData;
-                // });
-
-
-            }).catch((err) => {
-                console.log("받아오지못함777")
             });
-
+            console.log("여기는 노드 응답 성공 / 리액트 api함수 ", response);
+            return response;
         } else {
             return axios.get(`/data/${myName}`);
         }
-
     } catch (error) {
         console.log(error);
         return error;
@@ -77,34 +61,6 @@ export const loginApi = async (myName, data) => {
 
 
 
-
-
-// export const loginApi = async (myName, data = null) => {
-//     try {
-//         if (data) {
-
-//             const response = await axios.post(`/data/${myName}`, {
-//                 headers: {
-//                     'Content-Type': 'multipart/form-data',
-//                 },
-//                 body: data
-//             });
-
-//             if (!response.ok) {
-//                 throw new Error('Network response was not ok');
-//             }
-
-//             const responseData = await response.json();
-//             return responseData;
-//         } else {
-//             return axios.get(`/data/${myName}`);
-//         }
-
-//     } catch (error) {
-//         console.log(error);
-//         return error;
-//     }
-// };
 
 
 
