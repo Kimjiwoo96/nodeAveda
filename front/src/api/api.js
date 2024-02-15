@@ -12,13 +12,20 @@ export const productApi = async (myName, data = null) => {
                 },
                 body: data
             }).then((response) => {
-                console.log(response);
-                response.json().then((responseData) => {
-                    return responseData;
-                });
+                console.log("api res>>>>>>", typeof response, response);
+
+
+                return response;
+
+                // response.json().then((responseData) => {
+                //     console.log("이건또먼데>>>>>>", responseData)
+
+                //     return responseData;
+                // });
+
 
             }).catch((err) => {
-                console.log("받아오지못함")
+                console.log("받아오지못함777")
             });
 
         } else {

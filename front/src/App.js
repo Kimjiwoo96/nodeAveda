@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import { Routes, Route } from "react-router-dom";
 
 // api
-import { productApi } from "./api/product";
+import { productApi } from "./api/api";
 // component파일 
 import Hd from "./component/layout/Hd";
 import Mainvideo from "./component/banner/Videobanner"

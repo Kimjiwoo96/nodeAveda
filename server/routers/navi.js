@@ -51,14 +51,22 @@ naviapp.post('/:tablenm', (req, res, next) => {
     if (error) throw console.log("디비접속오류" + error)
 
     if (tablenm == "member") {
-      connection.query(`SLELCT INTO ${tablenm}  (${columns})
-      VALUES (${values})`, (errors, success) => {
+
+
+
+      connection.query(`SELECT * FROM ${tablenm} where name = '${req.body.body.name}'`, (errors, success) => {
         if (errors) {
           throw console.log('connect.js에서 insert 오류' + errors)
         }
-        res.send(success)
+        if (success.length) {
+          res.send(req.body.body.name == "admin" ? "s" : "m")
+        } else {
+          res.send("nomember")
+        }
         connection.release();
       })
+
+
     } else {
       connection.query(`INSERT INTO ${tablenm}  (${columns})
   VALUES (${values})`, (errors, success) => {
