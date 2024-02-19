@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 
-import { productApi } from "../../api/api";
+import { productApi } from "../../api/api.ts";
 // css
 import '../../scss/Form.scss'
 import { Mycontainer } from "../../js/commonUi"

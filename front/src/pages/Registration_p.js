@@ -4,7 +4,7 @@ import { useForm } from "react-hook-form"
 // import axios from 'axios';
 
 // api
-import { productApi } from "../api/api";
+import { productApi } from "../api/api.ts";
 
 // css 연결
 import "../scss/Registration_p.scss"

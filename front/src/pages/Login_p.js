@@ -1,11 +1,14 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 // api
-import { productApi } from "../api/api";
+import { productApi } from "../api/api.ts";
 
-function Login_p() {
+function Login_p({
+    mbstatus,
+    setMbstatus
+}) {
     const [formData, setFormData] = useState({});
-    const [mbstatus, setMbstatus] = useState("nomember");
+    // const [mbstatus, setMbstatus] = useState("nomember");
 
     const onSubmitHandler = async (e) => {
         e.preventDefault();
@@ -18,6 +21,9 @@ function Login_p() {
             });
             console.log("로그인 컴포넌트", response); // Check response structure
             setMbstatus(response.data.member); // Assuming response.data.member contains 's', 'm', or 'nomember'
+
+
+            console.log("멤버야아니야>>>>>>", mbstatus)
         } catch (error) {
             console.error('서버 요청 오류:', error);
         }

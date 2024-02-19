@@ -8,7 +8,9 @@ import { Link } from 'react-router-dom';
 
 
 function Hd({
-    sharedState
+    sharedState,
+    mbstatus,
+    setMbstatus
 }) {
     const [liOpen, setLiOpen] = useState(null)
     const [scrollPosition, setScrollPosition] = useState(0);
@@ -93,24 +95,33 @@ function Hd({
                                 }
                             </Nav>
                             <Nav className={`${styleHd.icons} px-3 px-lg-0 d-flex justify-content-end flex-row`}>
-                                {/* <Link to="/shop" className={`${styleHd.iconsLink}`}>
-                                    <p><i class="bi bi-geo-alt"></i>Shop</p>
-                                </Link> */}
 
-                                <Link to="/cart" className={`${styleHd.iconsLink}`}>
-                                    <p className='position-relative'><i class="bi bi-cart"></i>Cart
-                                        <span className='position-absolute bg-dark text-white end-0 top-0'>{sharedState.length > 0 ? sharedState.length : null}</span>
-                                    </p>
-                                </Link>
+                                {mbstatus === "최고관리자" ?
+                                    <Link to="/registration" className={`${styleHd.iconsLink}`}>
+                                        <p><i class="bi bi-clipboard-check"></i>상품등록</p>
+                                    </Link>
+                                    :
+                                    <Link to="/cart" className={`${styleHd.iconsLink}`}>
+                                        <p className='position-relative'><i class="bi bi-cart"></i>Cart
+                                            <span className='position-absolute bg-dark text-white end-0 top-0'>{sharedState.length > 0 ? sharedState.length : null}</span>
+                                        </p>
+                                    </Link>
+                                }
+
 
                                 <Link to="/login" className={`${styleHd.iconsLink}`}>
-                                    <p><i class="bi bi-person-circle"></i>Mypage</p>
+                                    {mbstatus == "최고관리자" || mbstatus == "일반회원" ?
+                                        <p><i class="bi bi-person-circle"></i>LogOut</p> :
+                                        <p
+                                            onClick={() => {
+                                                setMbstatus("nomember")
+                                            }}
+                                        ><i class="bi bi-person-circle"></i>Login</p>
+                                    }
                                 </Link>
 
 
-                                <Link to="/registration" className={`${styleHd.iconsLink}`}>
-                                    <p>상품등록</p>
-                                </Link>
+
 
 
                             </Nav>
